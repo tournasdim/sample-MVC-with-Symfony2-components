@@ -1,0 +1,28 @@
+{
+    "name": "tournasdim/sample-mvc-with-symfony2-components",
+	"type" : "framework" , 
+    "description": "A sample MVC app build on top of Symfony2 and Laravel4 components (also Twig , Pure and Jquery)",
+	"keywords" : ["Laravel4" , "Symfony2" , "Pure" , "Jquery" , "Twig" ] ,
+	"homepage" : "https://github.com/tournasdim/sample-MVC-with-Symfony2-components" ,
+	"license" : "MIT" , 
+    "authors": [
+        {
+            "name": "Tournas Dimitrios",
+            "email": "tournasdimitrios@gmail.com" , 
+			"role"  : "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/symfony": "~2.4",
+		"illuminate/database": "4.2.*@dev",
+		 "twig/twig": "1.*",
+        "twig/extensions": "~1.0"    
+    },
+    "autoload": {
+        "psr-0": { 
+			"": "src/" 
+		}
+	},
+    "minimum-stability": "dev"
+}

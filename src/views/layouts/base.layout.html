@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+{#  ############################################################### #}
+{#  ################### Setting Web Root URL       ################ #}
+{#  ############################################################### #}
+{% set webroot = 'http://local.symfony/standalone/web' %}
+
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A layout example that shows off a blog page with a list of posts.">
+
+    <title>{% block doc_title %}{% endblock %}</title>
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+<link rel="stylesheet" href="{{webroot}}/css/jbar.style.css">
+
+<!--[if lte IE 8]>
+  
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-old-ie-min.css">
+  
+<![endif]-->
+<!--[if gt IE 8]><!-->
+  
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/grids-responsive-min.css">
+  
+<!--<![endif]-->  
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="/combo/1.15.3?/css/layouts/blog-old-ie.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="http://purecss.io/combo/1.15.3?/css/layouts/blog.css">
+    <!--<![endif]-->    
+<!--[if lt IE 9]>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
+<![endif]--> 
+
+</head>
+<body>
+
+
+				<a id="msgbar" ></a>
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header">
+            <hgroup>
+                <h1 class="brand-title">A Sample MVC App</h1>
+                <h3 class="brand-tagline">By using  <br>
+                    Symfony & Laravel <br>
+                    components .<br>
+                    Twig for Templating ,<br> Pure as CSS library <br>
+					and Jquery for notifications .</h3>
+                <h3> </h3>
+            </hgroup>
+
+
+        </div>
+    </div>
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+
+<div class="pure-menu pure-menu-open pure-menu-horizontal">
+    <a href="#" class="pure-menu-heading">MVC demo</a>
+
+    <ul>
+
+
+
+        <li {% block list_all_users %} class="pure-menu-selected" {% endblock %}>
+<a href="{{webroot}}/users">List all users</a></li>
+        <li  {% block create_new_user %} class="pure-menu-selected" {% endblock %}>
+<a href="{{webroot}}/create-user">Create new user</a></li>
+       
+    </ul>
+</div>
+            <!-- A wrapper for all the contents -->
+             <div class="posts"> 
+             <h2>CRUD app demo</h2>   
+                <h1>{% block title '' %}</h1>
+                {% block content "<p>I'm default content!</p>" %}
+             </div>
+             <hr \>
+            <div class="footer">
+                <div class="pure-menu pure-menu-horizontal pure-menu-open">
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% block jquery %}
+<!-- Import jquery and define code for messagebar  -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="{{webroot}}/js/jquery.bar.js"></script>
+<script>
+// A message bar 
+var green_bar = function(msg) {
+		$("#msgbar").bar({
+			color 			 : '#FFF',
+			background_color : '#229922',
+			removebutton     : true,
+			message			 : msg ,
+			time			 : 1500
+		});
+$("#msgbar").click();
+};
+
+var yellow_bar = function(msg) {
+		$("#msgbar").bar({
+			color 			 : '#00F',
+			background_color : '#EE0',
+			removebutton     : true,
+			message			 : msg ,
+			time			 : 1500
+		});
+$("#msgbar").click();
+};
+
+var red_bar = function(msg) {
+		$("#msgbar").bar({
+			color 			 : '#FFF',
+			background_color : '#FF2222',
+			removebutton     : true,
+			message			 : msg ,
+			time			 : 4000
+		});
+$("#msgbar").click();
+};
+
+</script> 
+{% endblock %}
+
+</body>
+</html>

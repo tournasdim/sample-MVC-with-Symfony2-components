@@ -1,0 +1,9 @@
+<h3> Welcome::home2..... template ...... </h3>
+
+{{data.name}}
+
+{% for flashMessage in app.session.flashbag.get('error') %}
+    <div class="flash-notice">
+        {{ flashMessage }}
+    </div>
+{% endfor %}

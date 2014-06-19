@@ -1,0 +1,59 @@
+{% extends 'layouts/base.layout.html' %}
+{% block doc_title %}Create new user  {% endblock %}
+
+{% block content %}
+ <h1 class="content-subhead">Create a new User </h1>
+
+<form class="pure-form pure-form-aligned" method="post" action="">
+    <fieldset>
+        <div class="pure-control-group">
+            <label for="name">Full Name</label>
+            <input id="name" name="name" type="text" placeholder="Give your full-name">
+        </div>
+
+        <div class="pure-control-group">
+            <label for="name">Country</label>
+            <input id="name" name="country" type="text" placeholder="Your Country">
+        </div>
+
+        <div class="pure-control-group">
+            <label for="email">Email Address</label>
+            <input id="email" name="email" type="email" placeholder="Email Address">
+        </div>
+       <button type="submit" class="pure-button pure-button-primary">Create new user</button>
+        </div>
+		<input type="hidden" name="csrf_token" value="{{data.csrf_token}}">
+    </fieldset>
+</form>
+
+{# deactivate active menu-item #}
+{% block list_all_users %} {% endblock %}
+
+		{% block jquery %}
+
+			{% if data.error_msg %}
+				{{ parent() }}
+				<script>
+				$( document ).ready(function() {
+				red_bar("{{data.error_msg}}"); 
+				});
+				</script>
+			{% elseif data.warning_msg %}
+				{{ parent() }}
+				<script>
+				$( document ).ready(function() {
+				yellow_bar("{{data.warning_msg}}"); 
+				});
+				</script>	 
+			{% elseif data.info_msg %}
+				{{ parent() }}
+				<script>
+				$( document ).ready(function() {
+				green_bar("{{data.info_msg}}"); 
+				});
+				</script>
+
+			{% endif %}
+		 
+		{% endblock %}
+{% endblock %}

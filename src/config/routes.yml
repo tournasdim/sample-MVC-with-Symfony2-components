@@ -1,0 +1,38 @@
+# routes.yml
+# http://symfony.com/doc/current/cookbook/templating/render_without_controller.html
+# http://symfony.com/doc/current/book/routing.html
+
+home:
+  path: /home
+  defaults: { _controller: 'controllers\WelcomeController::homeAction' }
+
+home2:
+  path: /home2
+  defaults: { _controller: 'controllers\WelcomeController::home2Action' }
+
+delete-user:
+  path: /delete-user/{id}
+  defaults: {_controller: 'controllers\UserController::deleteAction' }
+  requirements:
+    id:  \d+
+
+edit-user:
+  path: /edit-user/{id}
+  defaults: {_controller: 'controllers\UserController::editAction' }
+
+update-user:
+  path: /update-user/{id}
+  defaults: {_controller: 'controllers\UserController::updateAction' }  
+
+list-users:
+  path: /users
+  defaults: {_controller: 'controllers\UserController::listallAction' }
+
+create-user:
+  path: /create-user
+  defaults: {_controller: 'controllers\UserController::createAction' }
+
+
+
+
+

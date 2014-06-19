@@ -1,0 +1,66 @@
+{% extends 'layouts/base.layout.html' %}
+{% block doc_title %}  List all users {% endblock %}
+
+{% block content %}
+	<h1 class="content-subhead">List all users </h1>
+	<table class="pure-table pure-table-horizontal">
+		<thead>
+		    <tr>
+		        <th>#</th>
+		        <th>Name</th>
+		        <th>Country</th>
+		        <th>Email</th>
+				<th>Edit</th>
+				<th>Delete</th>
+		    </tr>
+		</thead>
+		<tbody>
+				{% for user in data.users %}
+				<tr>
+				    <td>{{ user.id }}</td>
+				    <td>{{ user.name }}</td>
+				    <td>{{ user.country }}</td>
+				    <td>{{ user.email }}</td>
+				    <td>
+	<a href="edit-user/{{user.id}}"><img border="0" src="img/edit_icon.png" alt="edit_icon" ></a>
+					</td>
+					<td>
+	<a href="delete-user/{{user.id}}?{{data.csrf_token}}"> <img border="0" src="img/delete_icon.png" alt="delete_icon" ></a>
+					</td>
+				</tr>
+				{% endfor %}
+	   </tbody>
+	</table>
+
+{# deactivate active menu-item #}
+{% block create_new_user %} {% endblock %}
+
+{% block jquery %}
+
+			{% if data.error_msg %}
+				{{ parent() }}
+				<script>
+				$( document ).ready(function() {
+				red_bar("{{data.error_msg}}"); 
+				});
+				</script>
+			{% elseif data.warning_msg %}
+				{{ parent() }}
+				<script>
+				$( document ).ready(function() {
+				yellow_bar("{{data.warning_msg}}"); 
+				});
+				</script>	 
+			{% elseif data.info_msg %}
+				{{ parent() }}
+				<script>
+				$( document ).ready(function() {
+				green_bar("{{data.info_msg}}"); 
+				});
+				</script>
+
+			{% endif %}
+		 
+		{% endblock %}
+
+{% endblock %}
