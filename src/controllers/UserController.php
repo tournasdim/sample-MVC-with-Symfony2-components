@@ -110,26 +110,4 @@ class UserController extends BaseController
         return $response = new RedirectResponse($this->basepath.'/users');
 
     }
-
-    private function processForm($formData)
-    {
-
-        unset($formData['csrf_token']);
-        if (! $this->filterValidator->isValid($formData)) {
-            // optionaly store violations into an array (not used in this project)
-            $this->violations = $this->filterValidator->getViolations();
-            return false ; 
-        }
-        return $filteredFormData = $this->filterValidator->filter($this->requestObj, $formData);
-        
-    }
-
-    private function generateCsrfToken()
-    {
-
-        $csrfToken = $this->csrfHandler->generateCsrfToken();
-        $this->flashBag->replace('csrf_token', $csrfToken);
-        return $csrfToken;
-
-    }
 }
