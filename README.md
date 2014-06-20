@@ -5,4 +5,4 @@ A sample MVC app build on top of Symfony2 and Laravel4 components (also Twig , P
 
 ### A screenshot taken on a browser
 
-![Sample-MVC](https://dl.dropboxusercontent.com/u/8941952/GitHub-images/samplemvc.png")
+![Sample-MVC](https://dl.dropboxusercontent.com/u/8941952/GitHub-images/samplemvc.png)
