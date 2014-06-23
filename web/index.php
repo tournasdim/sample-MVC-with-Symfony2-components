@@ -15,12 +15,12 @@ use Symfony\Component\HttpKernel\EventListener\RouterListener;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 
-require '../vendor/autoload.php';
+require dirname(__DIR__).'/vendor/autoload.php';
 $routes = new RouteCollection();
-require '../src/routeClosures.php';
+require dirname(__DIR__).'/src/routeClosures.php';
 
 /* Reading Yaml for routes and creating a RouteCollection object */
-$loader = new YamlFileLoader(new FileLocator(__DIR__ . '/../src/config'));
+$loader = new YamlFileLoader(new FileLocator(dirname(__DIR__).'/src/config'));
 $collection = $loader->load('routes.yml');
 $routes->addCollection($collection);
 
