@@ -1,5 +1,6 @@
 sample-MVC-with-Symfony2-components
 ===================================
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/tournasdim/sample-MVC-with-Symfony2-components?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 A sample MVC app build on top of Symfony2 and Laravel4 components (also Twig , Pure and Jquery).
 This project is part of an article serie on [my Blog](http://tournasdimitrios1.wordpress.com/category/sample-mvc/) . 
